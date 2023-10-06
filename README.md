@@ -1,5 +1,9 @@
 # Blockchain App with Ethereum, Web3.js & Solidity Smart Contracts
 
+Deployes version is here:
+
+### `https://cosmic-klepon-758649.netlify.app/`
+
 ## Available Scripts
 
 In the project directory, you can run:
