@@ -12,7 +12,7 @@ contract("Marketplace", ([deployer, seller, buyer]) => {
     marketplace = await Marketplace.deployed();
   });
 
-  describe("deployment", async () => {
+  describe("deployment checks", async () => {
     it("deploys successfully", async () => {
       const address = await marketplace.address;
       assert.notEqual(address, 0x0);
