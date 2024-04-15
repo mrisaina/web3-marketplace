@@ -1,22 +1,8 @@
 import React, { Component } from 'react'
 import Table from '../Table/Table'
-import ImagePreview from '../ImagePreview/ImagePreview'
 import './Main.css'
 
 class Main extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      imageUrl: '',
-    }
-  }
-
-  handleImageInputChange = (event) => {
-    this.setState({
-      imageUrl: event.target.value,
-    })
-  }
-
   render() {
     return (
       <div id="content">
@@ -63,8 +49,10 @@ class Main extends Component {
           </button>
         </form>
         <p>&nbsp;</p>
-        <h2>Buy Product</h2>
-        <Table products={this.props.products} />
+        <Table
+          products={this.props.products}
+          purchaseProduct={this.props.purchaseProduct}
+        />
       </div>
     )
   }

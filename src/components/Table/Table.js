@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 class Table extends Component {
+  handleBuyClick = (event) => {
+    this.props.purchaseProduct(event.target.name, event.target.value)
+  }
+
   render() {
     return (
       <div>
@@ -39,12 +43,7 @@ class Table extends Component {
                     <button
                       name={product.id}
                       value={product.price}
-                      onClick={(event) => {
-                        this.props.purchaseProduct(
-                          event.target.name,
-                          event.target.value,
-                        )
-                      }}
+                      onClick={this.handleBuyClick}
                     >
                       Buy
                     </button>
