@@ -1,0 +1,15 @@
+name: Test Contract2
+
+on:
+  push:
+    branches:
+      - '*' # Trigger on pushes to all branches
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  Test-React-App:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
