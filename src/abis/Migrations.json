@@ -1471,12 +1471,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xFc3122B6a533F95Af0a12e60090C7f27aEe4C986",
-      "transactionHash": "0xd23538b2b19152fb5d3be43ef206e26ac10b1ace23c48e90c1cc5ec1f8adf1d5"
+      "address": "0x66ab6a17F8657C442CF5664057EfAE58e1037B91",
+      "transactionHash": "0xbc882c59069eb2fd43bc7c0d0f7050db83735980697295cb343a209c018af497"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-10-20T15:27:09.939Z",
+  "updatedAt": "2024-10-20T16:53:53.642Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
