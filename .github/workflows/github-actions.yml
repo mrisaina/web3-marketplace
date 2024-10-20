@@ -2,7 +2,11 @@ name: GitHub Actions
 
 run-name: ${{ github.actor }} is testing out GitHub Actions
 
-on: [push]
+on:
+  push:
+    branches:
+      - '*' # This will trigger on pushes to all branches
+  workflow_dispatch: # Allow manual triggers
 
 jobs:
   Test-React-App:
