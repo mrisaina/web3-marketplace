@@ -23,8 +23,8 @@ jobs:
       #   - name: Run truffle compile
       #     run: npm run truffle:compile
 
-      - name: Run truffle migrate
-        run: npm run truffle:migrate --network development
+      #   - name: Run truffle migrate
+      #     run: npm run truffle:migrate --network development
 
       - name: Run truffle test
         run: npm run truffle:test
