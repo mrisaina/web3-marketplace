@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run truffle compile
-        run: npx truffle compile --list
+      # - name: Run truffle compile
+      #   run: npx truffle compile --list
 
       - name: Run truffle compile
         run: npm run truffle:compile
