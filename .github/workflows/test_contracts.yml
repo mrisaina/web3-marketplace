@@ -1,34 +1,35 @@
-name: Test Contract
+name: GitHub Actions
 
-on:
-  push:
-    branches:
-      - '*' # Trigger on pushes to all branches
-  workflow_dispatch: # Allow manual triggers
+run-name: ${{ github.actor }} is testing out GitHub Actions
+
+on: [push]
 
 jobs:
   Test-React-App:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: 'packages/app/package-lock.json'
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm' # Cache npm dependencies for faster builds
 
       - name: Install dependencies
         run: npm install
+
+      - name: Run ESLint
+        run: npm run eslint
 
       - name: Run truffle compile
         run: npm run truffle:compile
 
       - name: Run truffle migrate
-        run: npm run truffle:migrate --network development
+        run: npm run truffle:migrate
 
       - name: Run truffle test
         run: npm run truffle:test
