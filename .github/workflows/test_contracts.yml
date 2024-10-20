@@ -23,6 +23,9 @@ jobs:
       - name: Install Solidity Compiler 0.5.0
         run: npm install solc@0.5.0
 
+      - name: list solc
+        run: npm list solc
+
       #   - name: Run truffle compile
       #     run: npm run truffle:compile
 
