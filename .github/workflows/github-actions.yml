@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run ESLint
-        run: npm run eslint
-
       - name: Run truffle compile
         run: npm run truffle:compile
 

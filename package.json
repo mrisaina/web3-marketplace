@@ -28,7 +28,7 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
-    "eslint": "npx eslint --ext .js",
+    "eslint": "npx eslint --ext .js src",
     "truffle:compile": "truffle compile",
     "truffle:migrate": "truffle migrate",
     "truffle:test": "truffle test",
@@ -44,6 +44,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^5.0.0",
     "prettier": "3.0.3"
   }
 }
