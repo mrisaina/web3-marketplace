@@ -1,0 +1,18 @@
+{
+  "errors": [
+    {
+      "component": "general",
+      "errorCode": "5333",
+      "formattedMessage": "ParserError: Source file requires different compiler version (current compiler is 0.8.26+commit.8a97fa7a.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version\n --> Marketplace.sol:1:1:\n  |\n1 | pragma solidity ^0.5.0;\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+      "message": "Source file requires different compiler version (current compiler is 0.8.26+commit.8a97fa7a.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version",
+      "severity": "error",
+      "sourceLocation": {
+        "end": 23,
+        "file": "Marketplace.sol",
+        "start": 0
+      },
+      "type": "ParserError"
+    }
+  ],
+  "sources": {}
+}
