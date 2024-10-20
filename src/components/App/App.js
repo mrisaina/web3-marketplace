@@ -37,7 +37,6 @@ class App extends Component {
       )
       this.setState({ marketplace })
       const productCount = await marketplace.methods.productCount().call()
-      console.log(productCount.toString())
       this.setState({ loading: false })
       this.setState({ productCount })
       // Load products
