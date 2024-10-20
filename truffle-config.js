@@ -1,6 +1,7 @@
 require('@babel/register')
 require('core-js/stable')
 require('regenerator-runtime/runtime')
+const path = require('path')
 
 module.exports = {
   networks: {
@@ -21,6 +22,7 @@ module.exports = {
           runs: 200,
         },
       },
+      path: path.resolve(__dirname, './node_modules/solc'),
     },
   },
 }
