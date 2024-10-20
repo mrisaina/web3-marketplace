@@ -26,5 +26,11 @@ jobs:
       #   - name: Run truffle migrate
       #     run: npm run truffle:migrate --network development
 
+      - name: Start ganache-cli
+        run: npx ganache-cli -p 7545 -i 1337 > /dev/null &
+
+      - name: Wait for Ganache
+        run: sleep 5
+
       - name: Run truffle test
         run: npm run truffle:test
