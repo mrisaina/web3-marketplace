@@ -1,7 +1,5 @@
 name: Test Contracts
 
-run-name: ${{ github.actor }} is testing out GitHub Actions
-
 on:
   push:
     branches:
@@ -11,17 +9,17 @@ on:
 jobs:
   Test-React-App:
     runs-on: ubuntu-latest
-    name: Test Contracts
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: npm
-          cache-dependency-path: packages/app/package-lock.json
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'packages/app/package-lock.json'
 
       - name: Install dependencies
         run: npm install
