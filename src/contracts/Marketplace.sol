@@ -1,3 +1,5 @@
+pragma solidity >=0.4.21 <0.6.0;
+
 pragma solidity ^0.5.0;
 
 contract Marketplace {
@@ -34,10 +36,10 @@ contract Marketplace {
     );
 
     function createProduct(string memory _name, uint _price) public {
-        require(bytes(_name).length > 0);
-        require(_price > 0);
+        require(bytes(_name).length > 0, "Product name must be provided.");
+        require(_price > 0, "Product price must be greater than zero.");
 
-        productCount ++;
+        productCount++;
         products[productCount] = Product(productCount, _name, _price, msg.sender, false);
 
         emit ProductCreated(productCount, _name, _price, msg.sender, false);
@@ -46,27 +48,30 @@ contract Marketplace {
     function purchaseProduct(uint _id) public payable {
         // Fetch the product
         Product memory _product = products[_id];
-        // Fetch the owner
         address payable _seller = _product.owner;
-        // Make sure the product has a valid id
-        require(_product.id > 0 && _product.id <= productCount);
 
-        // Require that there is enough Ether in the transaction
-        require(msg.value >= _product.price);
-        // Require that the product has not been purchased already
-        require(!_product.purchased);
-        // Require that the buyer is not the seller
-        require(_seller != msg.sender);
+        // Validate product ID range
+        require(_id > 0 && _id <= productCount, "Invalid product ID.");
+        
+        // Check for sufficient payment
+        require(msg.value >= _product.price, "Not enough Ether to purchase this product.");
+        
+        // Ensure product has not been purchased already
+        require(!_product.purchased, "Product has already been purchased.");
+        
+        // Check ownership to ensure buyer is not the seller
+        require(_seller != msg.sender, "Buyer cannot be the seller.");
 
         // Transfer ownership to the buyer
         _product.owner = msg.sender;
-    
-        // Mark as purchased
         _product.purchased = true;
+
         // Update the product
         products[_id] = _product;
-        address(_seller).transfer(msg.value);
 
-        emit ProductPurchased(productCount, _product.name, _product.price, msg.sender, true);
+        // Transfer funds to the seller
+        _seller.transfer(msg.value);
+
+        emit ProductPurchased(_id, _product.name, _product.price, msg.sender, true);
     }
 }
