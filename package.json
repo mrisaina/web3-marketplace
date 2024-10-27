@@ -1,7 +1,6 @@
 {
   "name": "eth-marketplace",
   "version": "0.1.0",
-  "type": "module",
   "description": "An Ethereum Marketplace",
   "dependencies": {
     "@babel/core": "^7.25.8",
