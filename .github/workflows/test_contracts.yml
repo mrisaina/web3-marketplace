@@ -23,6 +23,9 @@ jobs:
       - name: list solc
         run: npm list solc
 
+      - name: run analyzer
+        run: node analizer.js
+
       #   - name: Run truffle compile
       #     run: npm run truffle:compile
 

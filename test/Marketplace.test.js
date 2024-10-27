@@ -1,9 +1,9 @@
 const Marketplace = artifacts.require('./Marketplace.sol')
-const fs = require('fs')
-const path = require('path')
-const chai = require('chai')
-chai.use(require('chai-as-promised')).should()
-const assert = chai.assert
+import { readFileSync } from 'fs'
+import { join } from 'path'
+import { use, assert as _assert } from 'chai'
+use(require('chai-as-promised')).should()
+const assert = _assert
 
 contract('Marketplace', ([deployer, seller, buyer]) => {
   let marketplace
@@ -111,8 +111,8 @@ contract('Marketplace', ([deployer, seller, buyer]) => {
     let jsonOutput
 
     before(async () => {
-      const contractPath = path.join(__dirname, '../src/abis/Marketplace.json')
-      jsonOutput = JSON.parse(fs.readFileSync(contractPath, 'utf8'))
+      const contractPath = join(__dirname, '../src/abis/Marketplace.json')
+      jsonOutput = JSON.parse(readFileSync(contractPath, 'utf8'))
     })
 
     it('should have ABI', async () => {
