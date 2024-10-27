@@ -1,5 +1,5 @@
-import { readFileSync } from 'fs';
-import { parse, visit } from '@solidity-parser/parser';
+const { readFileSync } = require('fs');
+const { parse, visit } = require('@solidity-parser/parser');
 
 function analyzeContract(filePath) {
   let content;
